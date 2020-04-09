@@ -1,0 +1,16 @@
+name: Github checkout of private repo and run code
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: 'esimonetti/github-actions-private-repo-test'
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}   
+    - name: Build the docker image
+      run: docker build -t github-actions-docker-example-node
+    - name: Run the built docker image
+      run: docker run -t github-actions-docker-example-node:latest bash -c "node test.js"
