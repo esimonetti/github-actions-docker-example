@@ -12,7 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Run a plain docker debian bash command
+      run: docker run -it debian:latest bash -c "echo it works\!"  
     - name: Build the docker image
       run: docker build -t github-actions-docker-example .
     - name: Run the built docker image
-      run: docker exec -it github-actions-docker-example:latest bash -c "echo it works!"
+      run: docker run -it github-actions-docker-example:latest bash -c "echo it works\!"
+      
