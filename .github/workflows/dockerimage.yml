@@ -1,4 +1,4 @@
-name: Github actions docker example
+name: Github random actions docker example
 
 on:
   push:
@@ -17,5 +17,5 @@ jobs:
     - name: Build the docker image
       run: docker build -t github-actions-docker-example .
     - name: Run the built docker image
-      run: docker run -it github-actions-docker-example:latest bash -c "echo it works\!"
+      run: docker run -t github-actions-docker-example:latest bash -c "echo it works\!"
       
