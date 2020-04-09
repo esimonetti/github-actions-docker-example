@@ -15,4 +15,4 @@ jobs:
     - name: Build the docker image
       run: docker build -t github-actions-docker-example .
     - name: Run the built docker image
-      run: docker exec -it github-actions-docker-example --name github-actions-docker-example bash -c "echo it works!"
+      run: docker exec -it github-actions-docker-example:latest bash -c "echo it works!"
